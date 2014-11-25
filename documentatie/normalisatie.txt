@@ -1,0 +1,23 @@
+
+natuurgebied
+============
+- naam
+- beschrijving
+- geodata
+- info
+
+locatie
+=========
+- QR code
+- naam
+- beschrijving
+- categoriën
+- geolocatie
+
+
+categorie
+=========
+- naam
+- info over plek
+
+
