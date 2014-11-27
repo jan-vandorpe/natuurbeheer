@@ -6,7 +6,7 @@ use Doctrine\Common\ClassLoader;
 require_once 'Doctrine/Common/ClassLoader.php';
 $classLoader = new ClassLoader('MijnProject', 'src');
 $classLoader->register();
-$locatieId = $_GET['locatieId'];
+$locatieId = $_GET['locId'];
 $locatie = LocatieService::toonLocatie($locatieId);
 $ngbId = $locatie->getNatuurgebied_id();                        //natuurgebied waarvan locatie deel uitmaakt
 $natuurgebied = NatuurgebiedService::toonNatuurgebied($ngbId);
