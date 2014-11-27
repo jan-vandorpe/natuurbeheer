@@ -28,7 +28,6 @@
                 <th>Beschrijving</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
-                <th>Info</th>
             </tr>
             {% for locatie in locatielijst %}
             <tr>
@@ -37,7 +36,6 @@
                 <td>{{locatie.beschrijving}}</td>
                 <td>{{locatie.geo_lat}}</td>
                 <td>{{locatie.geo_long}}</td>
-                <td>{{locatie.info}}</td>
             </tr>
             {% endfor %}
         </table>

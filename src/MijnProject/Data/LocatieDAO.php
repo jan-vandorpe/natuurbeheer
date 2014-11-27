@@ -37,13 +37,11 @@ class LocatieDAO {
         $lijst = array();
         
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USER, DBConfig::$DB_PASS);
-        $query = "SELECT id, naam, beschrijving, geo_lat,geo_long, info, isActief from natuurgebied WHERE natuurgebied_id = " . $natuurgebied_id;
+        $query = "SELECT id, QRcode, naam, beschrijving, geo_lat,geo_long, natuurgebied_id, isActief from locatie WHERE natuurgebied_id = " . $natuurgebied_id;
         $result = $dbh->query($query);
         foreach ($result as $row) {
-            $row = $result->fetch();
-
-            $natuurgebied = Natuurgebied::add($row["id"], $row["naam"], $row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["info"], $row["isActief"]);
-            array_push($lijst, $natuurgebied);
+            $locatie = Locatie::add($row["id"], $row["QRcode"], $row["naam"], $row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["natuurgebied_id"], $row["isActief"]);
+            array_push($lijst, $locatie);
         }
         $dbh = null;
         return $lijst;
