@@ -25,13 +25,15 @@
             <tr>
                 <th></th>
                 <th></th>
-                <th>Type</th>
-                <th>Omschrijving</th>
-                <th>Prijs</th>
+                <th></th>
+                <th>Natuurgebied</th>
+                <th>Beschrijving</th>
+                <th>info</th>
             </tr>
             {% for natuurgebied in natuurgebiedlijst %}
             <tr>
                 <td><a href="natuurgebied.php?natId={{ natuurgebied.id }}">Toon alle locaties voor dit natuurgebied</a></td>
+                <td><a href="natuurgebiedqrcodes.php?natId={{ natuurgebied.id }}">Toon alle QR code voor de locaties van dit natuurgebied</a></td>
                 <td><a href="bewerk.php?id={{ natuurgebied.id }}">Edit</a></td>
                 <td>{{ natuurgebied.naam }}</td>
                 <td>{{ natuurgebied.beschrijving }}</td>
