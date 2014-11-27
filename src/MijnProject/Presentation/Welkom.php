@@ -13,11 +13,8 @@
         <div class="row">
             <article class="col-md-4">
                 <h3>Natuurgebieden</h3>
-                <p>klik op één van onderstaande natuurgebieden</p>
-                <ul>
-                    <li><a href="">het Zwin</a></li>
-                    <li><a href="">De zwalm</a></li>
-                </ul>
+                
+                <p>naar <a href="natuurgebiedentoonalle.php">de lijst van natuurgebieden</a></p>
             </article>
            
             
