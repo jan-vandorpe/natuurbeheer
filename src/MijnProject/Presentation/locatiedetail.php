@@ -22,8 +22,8 @@
     <body>
         <h1>Locatie detailpagina</h1>
 
-        <h2>{{ locatie.naam }} in het {{ natuurgebied.naam }}</h2>  
-        <p>{{ locatie.beschrijving }}</p>  
+        <h2>{{ Locatie.naam }} in het {{ Natuurgebied.naam }}</h2>  
+        <p>{{ Locatie.beschrijving }}</p>  
 
 
     </table>

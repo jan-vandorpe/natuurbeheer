@@ -11,12 +11,12 @@ class LocatieDAO {
         $lijst = array();
 
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USER, DBConfig::$DB_PASS);
-        $query = "SELECT id, naam, beschrijving, geo_lat,geo_long, info, isActief from natuurgebied";
+        $query = "SELECT id, QRcode, naam, beschrijving, geo_lat,geo_long, natuurgebied_id, isActief from locatie";
         $result = $dbh->query($query);
         foreach ($result as $row) {
 
-            $natuurgebied = Natuurgebied::add($row["id"], $row["naam"], $row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["info"], $row["isActief"]);
-            array_push($lijst, $natuurgebied);
+            $locatie = Locatie::add($row["id"], $row["QRcode"], $row["naam"],$row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["natuurgebied_id"], $row["isActief"]);
+            array_push($lijst, $locatie);
         }
         $dbh = null;
         return $lijst;
@@ -24,13 +24,13 @@ class LocatieDAO {
 
     public static function getById($id) {
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USER, DBConfig::$DB_PASS);
-        $query = "SELECT id, naam, beschrijving, geo_lat,geo_long, info, isActief from natuurgebied WHERE id = " . $id;
+        $query = "SELECT id, QRcode, naam, beschrijving, geo_lat,geo_long, natuurgebied_id, isActief from locatie WHERE id = " . $id;
         $result = $dbh->query($query);
         $row = $result->fetch();
 
-        $natuurgebied = Natuurgebied::add($row["id"], $row["naam"], $row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["info"], $row["isActief"]);
+        $locatie = Locatie::add($row["id"], $row["QRcode"], $row["naam"],$row["beschrijving"], $row["geo_lat"], $row["geo_long"], $row["natuurgebied_id"], $row["isActief"]);
         $dbh = null;
-        return $natuurgebied;
+        return $locatie;
     }
 
     public static function getAllByNatuurgebiedId($natuurgebied_id) {
@@ -47,11 +47,11 @@ class LocatieDAO {
         return $lijst;
     }
 
-    public static function add($naam, $beschrijving, $geo_lat, $geo_long, $info) {
-        //niuew is actief
+    public static function add($QRcode, $naam, $beschrijving, $geo_lat,$geo_long, $natuurgebied_id, $isActief) {
+        //nieuw is actief
 
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USER, DBConfig::$DB_PASS);
-        $query = "INSERT INTO natuurgebied ($naam, $beschrijving, $geo_lat, $geo_long, $info, $isActief) VALUES ('" . $naam . "', '" . $beschrijving . "', '.$geo_lat.', '.$geo_long.'', '" . $info . "', 1)";
+        $query = "INSERT INTO natuurgebied ( QRcode, naam, beschrijving, geo_lat, geo_long, natuurgebied_id, isActief) VALUES (" . $QRcode . ",'" . $naam . "', '" . $beschrijving . "', '.$geo_lat.', '.$geo_long.', " . $natuurgebied_id . ", 1)";
         $result = $dbh->exec($query);
         $dbh = null;
     }

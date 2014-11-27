@@ -1,4 +1,5 @@
 <?php
+
 namespace MijnProject\Business;
 use MijnProject\Data\NatuurgebiedDAO;
 
@@ -9,8 +10,8 @@ class NatuurgebiedService {
     }
 
     public static function toonNatuurgebied($id) {
-        $klant = NatuurgebiedDAO::getById($id);
-        return $klant;
+        $ngb = NatuurgebiedDAO::getById($id);
+        return $ngb;
     }
   
 
