@@ -22,7 +22,7 @@ class LocatieDAO {
     public static function getById($id) {
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USER, DBConfig::$DB_PASS); 
         $query = "SELECT id, naam, beschrijving, geo_lat,geo_long, info, isActief from natuurgebied WHERE id = ".$id;
-         $result = $dbh->query($query);
+        $result = $dbh->query($query);
         $row = $result->fetch();
        
         $natuurgebied = Natuurgebied::add($row["id"], $row["naam"], $row["beschrijving"], $row["geo_lat"],$row["geo_long"],$row["info"], $row["isActief"]);
