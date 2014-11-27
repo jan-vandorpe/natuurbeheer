@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Lijst van locaties voor natuurgebied XYZ</title>
+        <title>Lijst van locaties voor natuurgebied {{natuurgebiedinfo.naam}}</title>
         <style>
             table { border-collapse:collapse; }
             td, th { border:1px solid black; padding: 3px; }
@@ -20,7 +20,7 @@
         </style>
     </head>
     <body>
-        <h1>Lijst van locaties voor natuurgebied XYZ</h1>
+        <h1>Lijst van locaties voor natuurgebied {{natuurgebiedinfo.naam}}</h1>
         <table>
             <tr>
                 <th>id</th>
