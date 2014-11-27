@@ -31,10 +31,8 @@
             </tr>
             {% for natuurgebied in natuurgebiedlijst %}
             <tr>
-                <td>
-                    
-                </td>
-                <td><a href="productbewerk.php?id={{ natuurgebied.id }}">Edit</a></td>
+                <td><a href="toonLocaties.php?id={{ natuurgebied.id }}">Toon alle locaties voor dit natuurgebied</a></td>
+                <td><a href="bewerk.php?id={{ natuurgebied.id }}">Edit</a></td>
                 <td>{{ natuurgebied.naam }}</td>
                 <td>{{ natuurgebied.beschrijving }}</td>
                 <td>{{ natuurgebied.info }}</td>

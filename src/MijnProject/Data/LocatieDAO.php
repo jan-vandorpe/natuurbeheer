@@ -1,9 +1,9 @@
 <?php
 namespace MijnProject\Data;
-use MijnProject\Entities\Natuurgebied;
+use MijnProject\Entities\Locatie;
 
 use PDO;
-class NatuurgebiedDAO {
+class LocatieDAO {
     public static function getAll() {
         $lijst = array();
         

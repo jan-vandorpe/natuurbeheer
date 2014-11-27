@@ -8,25 +8,23 @@ class NatuurgebiedService {
         return $lijst;
     }
 
-    public static function toonKlant($nr) {
-        $klant = KlantDAO::getByNr($nr);
+    public static function toonNatuurgebied($id) {
+        $klant = NatuurgebiedDAO::getById($id);
         return $klant;
     }
-    
-    public static function emailKlant($email) {
-        $klant = KlantDAO::getByEmail($email);
-        return $klant;
-    }
+  
 
-    public static function bewerkKlant($id, $email, $pass, $naam, $voornaam, $adres, $postid) {
-        KlantDAO::edit($id, $email, $pass, $naam, $voornaam, $adres, $postid, $actief);
+    public static function bewerkNatuurgebied($id, $naam, $beschrijving, $geo_lat, $geo_long, $info, $isActief) {
+        NatuurgebiedDAO::edit($id, $naam, $beschrijving, $geo_lat, $geo_long, $info, $isActief);
     }
     
-    public static function voegKlantToe($email, $pass, $naam, $voornaam, $adres, $postid, $actief) {
-        KlantDAO::add($email, $pass, $naam, $voornaam, $adres, $postid, $actief);
+    public static function voegToe($naam, $beschrijving, $geo_lat, $geo_long, $info) {
+        // nieuw = actief
+        NatuurgebiedDAO::add($naam, $beschrijving, $geo_lat, $geo_long, $info);
     }
 
-    public static function schakelKlant($nr, $actief) {
-        KlantDAO::set($nr, $actief);
+    public static function set($id, $actief) {
+        //actie: 1/0
+        NatuurgebiedDAO::set($id, $actief);
     }    
 }
